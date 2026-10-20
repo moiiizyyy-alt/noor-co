@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noor & Co. — Timepieces</title>
+<meta name="description" content="Noor & Co. — minimal, everyday watches. Free delivery across Pakistan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4; --ink:#16130f; --muted:#6f685e; --line:#e6e0d4;
+  --gold:#b08a4a; --card:#ffffff; --dark:#16130f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.container{width:min(1160px,100% - 40px);margin-inline:auto}
+.serif{font-family:'Cormorant Garamond',serif}
+
+/* announcement + nav */
+.announce{background:var(--dark);color:#e9e2d3;text-align:center;font-size:.8rem;padding:8px 12px;letter-spacing:.04em}
+header{position:sticky;top:0;z-index:20;background:rgba(250,248,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;letter-spacing:.02em}
+.logo span{color:var(--gold)}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:.92rem;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.cart-btn{position:relative;display:flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--ink);border-radius:999px;font-size:.9rem;font-weight:500}
+.cart-btn:hover{background:var(--ink);color:#fff}
+.badge{background:var(--gold);color:#fff;border-radius:999px;min-width:20px;height:20px;font-size:.72rem;display:grid;place-items:center;padding:0 6px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:48px;padding:64px 0 72px}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,4.8rem);line-height:1.02;margin:14px 0 18px;font-weight:600}
+.hero p{color:var(--muted);max-width:46ch;margin-bottom:28px}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:14px 28px;border-radius:999px;font-weight:500;font-size:.95rem;transition:.2s}
+.btn:hover{background:var(--gold)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);margin-left:10px}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.hero-img{aspect-ratio:4/5;border-radius:220px 220px 20px 20px;overflow:hidden;background:#e9e2d3}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+
+/* trust strip */
+.trust{border-block:1px solid var(--line);background:#fff}
+.trust .container{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:22px 0;text-align:center;font-size:.85rem;color:var(--muted)}
+.trust b{display:block;color:var(--ink);font-weight:600;font-size:.92rem}
+
+/* products */
+section.block{padding:80px 0}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:34px;flex-wrap:wrap;gap:16px}
+.head h2{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;line-height:1.1}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;background:#fff;color:var(--muted)}
+.chip.active,.chip:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(22,19,15,.35)}
+.card .ph{aspect-ratio:1/1;overflow:hidden;background:linear-gradient(135deg,#efe8d9,#e0d6bf);position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .ph img{transform:scale(1.05)}
+.tag{position:absolute;top:12px;left:12px;background:var(--ink);color:#fff;font-size:.7rem;letter-spacing:.08em;padding:4px 10px;border-radius:999px;text-transform:uppercase}
+.card .info{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600}
+.card .meta{font-size:.83rem;color:var(--muted)}
+.card .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px}
+.price{font-weight:600}
+.price s{color:var(--muted);font-weight:400;font-size:.85rem;margin-left:6px}
+.add{background:var(--ink);color:#fff;padding:9px 16px;border-radius:999px;font-size:.83rem;font-weight:500;transition:.2s}
+.add:hover{background:var(--gold)}
+
+/* story */
+.story{background:var(--dark);color:#e9e2d3}
+.story .container{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;line-height:1.1;margin:12px 0 18px;font-weight:600;color:#fff}
+.story p{color:#b9b0a0;margin-bottom:14px}
+.story img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%}
+
+/* footer */
+footer{padding:56px 0 30px;border-top:1px solid var(--line);font-size:.88rem;color:var(--muted)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;margin-bottom:34px}
+footer h4{color:var(--ink);margin-bottom:10px;font-size:.9rem}
+footer li{list-style:none;margin-bottom:6px}
+.copy{border-top:1px solid var(--line);padding-top:18px;font-size:.8rem}
+
+/* drawer */
+.overlay{position:fixed;inset:0;background:rgba(22,19,15,.5);opacity:0;pointer-events:none;transition:.25s;z-index:40}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(430px,100%);background:#fff;z-index:50;transform:translateX(100%);transition:.3s;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer header{position:static;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:#fff;border-bottom:1px solid var(--line)}
+.drawer h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem}
+.items{flex:1;overflow:auto;padding:8px 22px}
+.empty{text-align:center;color:var(--muted);padding:60px 0}
+.line{display:grid;grid-template-columns:70px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.line img{width:70px;height:70px;object-fit:cover;border-radius:10px;background:#efe8d9}
+.line h4{font-size:.95rem;font-weight:600}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;margin-top:6px}
+.qty button{width:28px;height:28px;font-size:1rem}
+.qty span{min-width:22px;text-align:center;font-size:.85rem}
+.rm{font-size:.75rem;color:var(--muted);text-decoration:underline}
+.sum{padding:18px 22px;border-top:1px solid var(--line);background:#faf8f4}
+.sum .r{display:flex;justify-content:space-between;margin-bottom:6px;font-size:.92rem}
+.sum .total{font-weight:600;font-size:1.05rem;margin:8px 0 14px}
+.sum .btn{width:100%;text-align:center}
+
+/* checkout modal */
+.modal{position:fixed;inset:0;display:none;place-items:center;z-index:60;padding:20px}
+.modal.open{display:grid}
+.modal .box{background:#fff;border-radius:18px;padding:28px;width:min(480px,100%);max-height:92vh;overflow:auto}
+.modal h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;margin-bottom:4px}
+.modal p.sub{color:var(--muted);font-size:.88rem;margin-bottom:18px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:.78rem;font-weight:500;margin-bottom:4px}
+.field input,.field textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fdfcfa}
+.field input:focus,.field textarea:focus{outline:2px solid var(--gold);border-color:transparent}
+.pay{font-size:.85rem;background:#f6f1e6;border-radius:10px;padding:10px 12px;margin:6px 0 16px}
+.done{text-align:center;padding:20px 0}
+.done .tick{width:64px;height:64px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-size:2rem;margin:0 auto 14px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-size:.88rem;opacity:0;transition:.3s;z-index:70;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:900px){
+  .hero,.story .container{grid-template-columns:1fr}
+  .hero-img{order:-1;max-height:420px;aspect-ratio:auto;border-radius:20px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .trust .container{grid-template-columns:repeat(2,1fr)}
+  .nav ul{display:none}
+  .foot{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .btn.ghost{margin:10px 0 0}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">Free delivery across Pakistan · Cash on Delivery available · 7-day easy returns</div>
+
+<header>
+  <div class="container nav">
+    <a href="#top" class="logo">Noor<span>&</span>Co.</a>
+    <ul>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="cart-btn" id="openCart" aria-label="Open cart">
+      Cart <span class="badge" id="count">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="container hero">
+    <div>
+      <p class="eyebrow">Autumn Collection 2026</p>
+      <h1>Time, worn quietly.</h1>
+      <p>Minimal watches built for everyday life. Stainless steel cases, sapphire-style glass and straps that actually feel good on the wrist.</p>
+      <a href="#shop" class="btn">Shop the collection</a>
+      <a href="#story" class="btn ghost">Our story</a>
+    </div>
+    <div class="hero-img">
+      <img src="https://unsplash.com/photos/yHn3NFCQBnM/download?force=true&w=1000" alt="Gold wristwatch close-up" onerror="this.remove()">
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="container">
+      <div><b>Free Shipping</b>On every order</div>
+      <div><b>2-Year Warranty</b>On movement</div>
+      <div><b>Cash on Delivery</b>Pay at your door</div>
+      <div><b>7-Day Returns</b>No questions asked</div>
+    </div>
+  </div>
+
+  <section class="block" id="shop">
+    <div class="container">
+      <div class="head">
+        <h2>The Collection</h2>
+        <div class="filters" id="filters"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="story block" id="story">
+    <div class="container">
+      <div>
+        <p class="eyebrow">Our Story</p>
+        <h2>Made simple. Meant to last.</h2>
+        <p>Noor & Co. started with one idea: a good watch shouldn't need a loan. We design clean, honest timepieces and sell them directly, so you pay for the watch, not the markup.</p>
+        <p>Every piece is tested for water resistance and timekeeping before it leaves our workshop, and backed by a 2-year warranty.</p>
+        <a href="#shop" class="btn" style="background:#fff;color:#16130f;margin-top:10px">Browse watches</a>
+      </div>
+      <img src="https://unsplash.com/photos/zGL-ArgFYB0/download?force=true&w=1000" alt="Watch on a dark surface" onerror="this.remove()">
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container">
+    <div class="foot">
+      <div>
+        <div class="logo" style="margin-bottom:10px">Noor<span>&</span>Co.</div>
+        <p style="max-width:34ch">Minimal everyday watches, delivered across Pakistan.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul><li><a href="#shop">All watches</a></li><li><a href="#shop">Gold</a></li><li><a href="#shop">Steel</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li>hello@noorandco.example</li><li>WhatsApp: +92 300 0000000</li><li>Mon–Sat, 10am–7pm</li></ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 Noor & Co. Demo store — photos from Unsplash.</div>
+  </div>
+</footer>
+
+<!-- cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <header><h3>Your Cart</h3><button id="closeCart" aria-label="Close cart" style="font-size:1.5rem">×</button></header>
+  <div class="items" id="items"></div>
+  <div class="sum" id="sum">
+    <div class="r"><span>Subtotal</span><span id="sub">Rs 0</span></div>
+    <div class="r"><span>Delivery</span><span>Free</span></div>
+    <div class="r total"><span>Total</span><span id="total">Rs 0</span></div>
+    <button class="btn" id="checkout">Checkout</button>
+  </div>
+</aside>
+
+<!-- checkout -->
+<div class="modal" id="modal">
+  <div class="box" id="box"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const IMG = id => `https://unsplash.com/photos/${id}/download?force=true&w=800`;
+
+const products = [
+  {id:1, name:"Aurum Classic",  cat:"Gold",  price:18500, old:22000, tag:"Bestseller", desc:"Gold case · Quartz · 40mm",     img:IMG("yHn3NFCQBnM")},
+  {id:2, name:"Noir Heritage",  cat:"Gold",  price:21900, old:null,  tag:"New",        desc:"Black dial · Automatic · 41mm", img:IMG("brqTWpFkmSQ")},
+  {id:3, name:"Slate Steel",    cat:"Steel", price:16900, old:19500, tag:"Sale",       desc:"Steel bracelet · Automatic · 40mm", img:IMG("zGL-ArgFYB0")},
+  {id:4, name:"Rosé Muse",      cat:"Women", price:14900, old:null,  tag:"New",        desc:"Rose gold · Quartz · 34mm",     img:IMG("55ZjBmoOH1U")},
+  {id:5, name:"Meridian Duo",   cat:"Steel", price:19900, old:null,  tag:"",           desc:"Two-tone · Quartz · 40mm",      img:IMG("pNKr3rUqM6U")},
+  {id:6, name:"Onyx Minimal",   cat:"Steel", price:12900, old:15500, tag:"Sale",       desc:"Black dial · Quartz · 38mm",    img:IMG("Q8Szeb97fxA")},
+];
+
+const fmt = n => "Rs " + n.toLocaleString("en-PK");
+const $ = s => document.querySelector(s);
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("noor_cart") || "[]"); } catch(e){ cart = []; }
+let filter = "All";
+
+function save(){ try{ localStorage.setItem("noor_cart", JSON.stringify(cart)); }catch(e){} }
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove("show"),1800); }
+
+/* filters + grid */
+function renderFilters(){
+  const cats = ["All", ...new Set(products.map(p=>p.cat))];
+  $("#filters").innerHTML = cats.map(c=>`<button class="chip ${c===filter?"active":""}" data-c="${c}">${c}</button>`).join("");
+}
+function renderGrid(){
+  const list = products.filter(p => filter==="All" || p.cat===filter);
+  $("#grid").innerHTML = list.map(p=>`
+    <article class="card">
+      <div class="ph">
+        ${p.tag?`<span class="tag">${p.tag}</span>`:""}
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="info">
+        <h3>${p.name}</h3>
+        <div class="meta">${p.desc}</div>
+        <div class="row">
+          <div class="price">${fmt(p.price)}${p.old?`<s>${fmt(p.old)}</s>`:""}</div>
+          <button class="add" data-id="${p.id}">Add to cart</button>
+        </div>
+      </div>
+    </article>`).join("");
+}
+$("#filters").addEventListener("click", e=>{
+  const b=e.target.closest(".chip"); if(!b) return;
+  filter=b.dataset.c; renderFilters(); renderGrid();
+});
+$("#grid").addEventListener("click", e=>{
+  const b=e.target.closest(".add"); if(!b) return;
+  addToCart(+b.dataset.id);
+});
+
+/* cart */
+function addToCart(id){
+  const l = cart.find(i=>i.id===id);
+  l ? l.qty++ : cart.push({id, qty:1});
+  save(); renderCart(); toast("Added to cart"); 
+}
+function renderCart(){
+  const n = cart.reduce((s,i)=>s+i.qty,0);
+  $("#count").textContent = n;
+  const box = $("#items");
+  if(!cart.length){
+    box.innerHTML = `<div class="empty">Your cart is empty.<br><br><a href="#shop" class="btn" id="goShop">Start shopping</a></div>`;
+    $("#sum").style.display="none";
+  } else {
+    $("#sum").style.display="block";
+    box.innerHTML = cart.map(i=>{
+      const p = products.find(x=>x.id===i.id);
+      return `<div class="line">
+        <img src="${p.img}" alt="${p.name}" onerror="this.style.visibility='hidden'">
+        <div>
+          <h4>${p.name}</h4>
+          <div class="meta" style="font-size:.8rem;color:var(--muted)">${fmt(p.price)}</div>
+          <div class="qty"><button data-a="dec" data-id="${p.id}">−</button><span>${i.qty}</span><button data-a="inc" data-id="${p.id}">+</button></div>
+        </div>
+        <div style="text-align:right"><div class="price">${fmt(p.price*i.qty)}</div><button class="rm" data-a="rm" data-id="${p.id}">Remove</button></div>
+      </div>`;
+    }).join("");
+  }
+  const sub = cart.reduce((s,i)=>s+products.find(x=>x.id===i.id).price*i.qty,0);
+  $("#sub").textContent = fmt(sub); $("#total").textContent = fmt(sub);
+}
+$("#items").addEventListener("click", e=>{
+  if(e.target.id==="goShop"){ closeCart(); return; }
+  const b=e.target.closest("[data-a]"); if(!b) return;
+  const id=+b.dataset.id, l=cart.find(i=>i.id===id);
+  if(b.dataset.a==="inc") l.qty++;
+  if(b.dataset.a==="dec") l.qty = Math.max(0,l.qty-1);
+  if(b.dataset.a==="rm") l.qty = 0;
+  cart = cart.filter(i=>i.qty>0);
+  save(); renderCart();
+});
+const openCart = ()=>{ $("#drawer").classList.add("open"); $("#overlay").classList.add("open"); };
+const closeCart = ()=>{ $("#drawer").classList.remove("open"); $("#overlay").classList.remove("open"); };
+$("#openCart").onclick = openCart;
+$("#closeCart").onclick = closeCart;
+$("#overlay").onclick = closeCart;
+
+/* checkout */
+function cartTotal(){ return cart.reduce((s,i)=>s+products.find(x=>x.id===i.id).price*i.qty,0); }
+$("#checkout").onclick = ()=>{
+  closeCart();
+  $("#box").innerHTML = `
+    <h3>Checkout</h3>
+    <p class="sub">${cart.reduce((s,i)=>s+i.qty,0)} item(s) · Total ${fmt(cartTotal())}</p>
+    <form id="form">
+      <div class="field"><label>Full name</label><input name="name" required></div>
+      <div class="field"><label>Phone / WhatsApp</label><input name="phone" type="tel" required placeholder="03XX XXXXXXX"></div>
+      <div class="field"><label>City</label><input name="city" required></div>
+      <div class="field"><label>Delivery address</label><textarea name="addr" rows="2" required></textarea></div>
+      <div class="pay"><b>Payment:</b> Cash on Delivery (pay when your watch arrives)</div>
+      <button class="btn" style="width:100%" type="submit">Place order</button>
+      <button type="button" class="rm" id="cancelCo" style="display:block;margin:12px auto 0">Cancel</button>
+    </form>`;
+  $("#modal").classList.add("open");
+  $("#cancelCo").onclick = ()=>$("#modal").classList.remove("open");
+  $("#form").onsubmit = e=>{
+    e.preventDefault();
+    const no = "NC-" + Math.floor(100000 + Math.random()*900000);
+    const name = new FormData(e.target).get("name");
+    cart = []; save(); renderCart();
+    $("#box").innerHTML = `<div class="done">
+      <div class="tick">✓</div>
+      <h3>Thank you, ${String(name).replace(/[<>&"]/g,"")}!</h3>
+      <p class="sub">Order <b>${no}</b> is confirmed. We'll WhatsApp you before delivery.</p>
+      <button class="btn" id="closeDone">Continue shopping</button></div>`;
+    $("#closeDone").onclick = ()=>$("#modal").classList.remove("open");
+  };
+};
+$("#modal").addEventListener("click", e=>{ if(e.target.id==="modal") $("#modal").classList.remove("open"); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeCart(); $("#modal").classList.remove("open"); } });
+
+renderFilters(); renderGrid(); renderCart();
+</script>
+</body>
+</html>
